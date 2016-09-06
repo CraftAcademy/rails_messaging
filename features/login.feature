@@ -12,3 +12,7 @@ Given I am on the "home" page
 Then I should see "Login" link
 When I click the "Login" link
 Then I should be on the "login" page
+When I fill in "Email" with "jenny@random.com"
+And I fill in "Password" with "password"
+And I click the "Log in" button
+Then I should see "Signed in successfully"
