@@ -23,4 +23,4 @@ Given I am on the "login" page
 When I fill in "Email" with "jennyrandom.com"
 And I fill in "Password" with "password"
 And I click the "Log in" button
-Then I should see "an error message"
+Then I should see "Invalid email or password"
