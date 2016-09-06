@@ -4,4 +4,6 @@ Feature: As a visitor
 
 Scenario: Signing up
 Given I am on the "home" page
-Then I should see "Sign up" button
+Then I should see "Sign up" link
+When I click the "Sign up" link
+Then I should be on the "/users/sign_up" page
