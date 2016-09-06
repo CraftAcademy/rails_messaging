@@ -20,18 +20,14 @@ RSpec.describe User, type: :model do
     expect(User.first[:email]).to eq "theamb@gmail.com"
   end
 
-  it 'should verify passwords match' do
+  describe 'Validations' do
 
+    before do
+      @user = User.new(name: "Amber", email: "theamb@gmail.com", password: "password")
+    end
+
+    it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :email }
   end
 
-end
-
-describe 'Validations' do
-
-  before do
-    @user = User.create(name: "Amber", email: "theamb@gmail.com", password: "password")
-  end
-
-  it { is_expected.to validate_presence_of :name }
-  it { is_expected.to validate_presence_of :email }
 end

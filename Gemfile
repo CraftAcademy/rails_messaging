@@ -14,8 +14,7 @@ gem 'devise'
 gem 'mailboxer'
 
 
-group :development do
-  gem 'web-console', '~> 2.0'
+group :development, :test do
   gem 'spring'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
@@ -23,6 +22,10 @@ group :development do
   gem 'pry'
   gem 'pry-byebug'
   gem 'shoulda-matchers'
+end
+
+group :development do
+  gem 'web-console', '~> 2.0'
 end
 
 group :production do
