@@ -6,7 +6,7 @@ Scenario: Signing up
   Given I am on the "home" page
   Then I should see "Sign up" link
   When I click the "Sign up" link
-  Then I should be on the "/users/sign_up" page
+  Then I should be on the "sign up" page
   When I fill in "Name" with "Amber"
   And I fill in "Email" with "theamb@gmail.com"
   And I fill in "Password" with "password"

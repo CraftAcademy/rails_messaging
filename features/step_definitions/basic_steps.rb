@@ -12,7 +12,9 @@ When(/^I click the "([^"]*)" link$/) do |link|
 end
 
 Then(/^I should be on the "([^"]*)" page$/) do |url|
-  expect(current_path).to eq url
+  goto = "/users/sign_up" if url = "sign up"
+  goto = "/" if url = "index"
+  expect(current_path).to eq goto
 end
 
 When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |element, text|
