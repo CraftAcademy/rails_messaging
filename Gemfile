@@ -19,6 +19,7 @@ group :development do
   gem 'spring'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'rspec-rails'
 end
 
 group :production do
