@@ -1,0 +1,64 @@
+As a visitor
+in order to interact with the site
+I need to be able to sign up
+
+As a registered user
+in order to access the functions of the site
+I need to be able to login
+
+As a user
+in order to efficiently login for the first time
+I should be automatically logged in when I register
+
+As a user
+in order to avoid logging in too frequently
+I would like to be able to have the site remember me
+
+As a user
+in order to have a way to access the site if I forgot my password
+I should be able to have my password reset
+**Heroku throwing errors on this one
+
+As a user
+in order to terminate my session
+I should be able to log out
+
+As a user
+in order to view my latest messages
+I should be able to see messages in my inbox
+
+As a user
+in order to get a quick update about new messages
+I should see a count of new messages on my inbox page
+
+As a user
+in order to view the history of my message
+I should be able to see the message thread
+
+As a user
+in order to view all of my messages efficiently
+I should see message details in my inbox
+
+As a user
+in order to clean up my mailbox
+I should be able to trash a message thread
+
+As a user
+in order to protect messages I want to keep
+I should be alerted when I go to delete a message
+
+As a user
+in order to view my sent messages
+I should see sent messages in my "sent messages" box
+
+As a user
+in order to view my trashed messages
+I should see trashed messages in my trash
+
+As a user
+in order to send messages
+I need to be able to compose messages (recipient, subject, msg)
+
+As a user
+in order to actually communicate with other users
+my composed and sent message should show up in the intended recipient's inbox
