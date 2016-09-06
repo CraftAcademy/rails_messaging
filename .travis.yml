@@ -3,8 +3,8 @@ cache: bundler
 rvm:
   - 2.2.1
 script:
-  - rake db:create --all
-  - rake db:migrate
+  - bundle exec rake db:create --all
+  - bundle exec rake db:migrate
 deploy:
   provider: heroku
   api_key:
