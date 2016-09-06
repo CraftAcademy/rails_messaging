@@ -12,8 +12,8 @@ When(/^I click the "([^"]*)" link$/) do |link|
 end
 
 Then(/^I should be on the "([^"]*)" page$/) do |url|
-  goto = "/users/sign_up" if url = "sign up"
-  goto = "/" if url = "index"
+  goto = "/users/sign_up" if url == "sign up"
+  goto = "/" if url == "index"
   expect(current_path).to eq goto
 end
 
