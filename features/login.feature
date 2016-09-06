@@ -11,4 +11,4 @@ Scenario: Logging in
 Given I am on the "home" page
 Then I should see "Login" link
 When I click the "Login" link
-Then I should be on the "Login" page
+Then I should be on the "login" page

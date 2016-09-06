@@ -14,6 +14,7 @@ end
 Then(/^I should be on the "([^"]*)" page$/) do |url|
   goto = "/users/sign_up" if url == "sign up"
   goto = "/" if url == "index"
+  goto = "/users/sign_in" if url == "login"
   expect(current_path).to eq goto
 end
 
