@@ -22,6 +22,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'shoulda-matchers'
+  gem "codeclimate-test-reporter", require: nil
 end
 
 group :development do
