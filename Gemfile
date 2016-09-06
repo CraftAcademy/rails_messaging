@@ -12,6 +12,7 @@ gem 'chosen-rails'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'mailboxer'
+gem 'coveralls', require: false
 
 
 group :development, :test do
