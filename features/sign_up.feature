@@ -33,7 +33,6 @@ Scenario Outline: User sign up sad path
 
 Scenarios:
   | user_name | user_email      | user_password | user_password_confirmation  | error                                 |
-  | --------- | --------------- | ------------- | --------------------------- | -----------------------------------   | 
   | Jenny     | jenny@email.com | pass          | pass                        | "Password is too short"               |
   | Jenny     | jenny@email.com |               |                             | "Password can't be blank"             |
   |           | jenny@email.com | password      | password                    | "Name can't be blank"                 |
@@ -56,7 +55,6 @@ Scenario Outline: I attempt to sign up with previously-registered information
 
 Scenarios:
   | user_name | user_email       | user_password | user_password_confirmation |  error                         |
-  | --------- | ---------------- | ------------- | -------------------------- | ----------------------------   |
   | Jenny     | jenny@jenny.com  | password      | password                   | "Name has already been taken"  |
   | Beth      | jenny@random.com | password      | password                   | "Email has already been taken" |
   | Jenny     | jenny@random.com | password      | password                   | "Name has already been taken"  |
