@@ -12,14 +12,22 @@ gem 'chosen-rails'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'mailboxer'
+gem 'coveralls', require: false
 
 
-group :development do
-  gem 'web-console', '~> 2.0'
+group :development, :test do
   gem 'spring'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'rspec-rails'
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'shoulda-matchers'
+  gem "codeclimate-test-reporter", require: nil
+end
+
+group :development do
+  gem 'web-console', '~> 2.0'
 end
 
 group :production do
