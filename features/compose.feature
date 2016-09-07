@@ -16,7 +16,9 @@ Feature: As a user
    When I click the "Compose" link
    Then I should be on the "compose" page
 
- Scenario: Compose-button on mailbox page
+ Scenario: Sending a message
    Given I am logged in as "Jenny"
    And I am on the "compose" page
    When I select "Anna" in "Recipients"
+   And I fill in "Subject" with "here's a message"
+   And I fill in "Message" with "message body"
