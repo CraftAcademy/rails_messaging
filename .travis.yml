@@ -2,7 +2,7 @@ language: ruby
 cache: bundler
 rvm:
   - 2.2.1
-setup:
+before_script:
   - bundle exec rake db:create --all
   - bundle exec rake db:migrate
 script:
