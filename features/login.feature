@@ -35,3 +35,10 @@ Scenario: Not input email
   When I leave the "Password" field empty
   And I click the "Log in" button
   Then I should see "Invalid email or password"
+
+Scenario: Not registered user
+  Given I am on the "login" page
+  When I fill in "Email" with "henny@random.com"
+  And I fill in "Password" with "password"
+  And I click the "Log in" button
+  Then I should see "Invalid email or password"
