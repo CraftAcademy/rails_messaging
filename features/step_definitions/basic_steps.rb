@@ -17,6 +17,7 @@ Then(/^I should be on the "([^"]*)" page$/) do |url|
   goto = new_user_registration_path if url == "sign up"
   goto = root_path if url == "index"
   goto = user_session_path if url == "login"
+  goto = user_registration_path if url == "users"
   expect(current_path).to eq goto
 end
 
