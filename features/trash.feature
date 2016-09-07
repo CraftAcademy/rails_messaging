@@ -12,6 +12,7 @@ Scenario: I delete a message from my inbox
   Given I am logged in as "Jenny"
   And I send a mail to "Anna" with subject "Hey there Anna!"
   And I send a mail to "Anna" with subject "Yo Anna!"
+  And I send a mail to "Anna" with subject "Third message!"
   And I am on the "index" page
   And I click the "Logout" link
 
@@ -20,8 +21,14 @@ Scenario: I delete a message from my inbox
   And I click the first "View" link
   And I click the "Move to trash" link
   Then I should be on the "mailbox" page
-  And I should not see "Yo Anna!"
+  And I should not see "Third Message!"
   And I should see "Hey there Anna!"
   When I click the "Trash" link
   # Then "Trash" should be highlighted
+  Then I should see "Third message!"
+
+  When I am on the "mailbox" page
+  And I click the first "View" link
+  And I click the "Move to trash" link
+  And I click the "Trash" link
   Then I should see "Yo Anna!"
