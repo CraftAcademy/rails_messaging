@@ -3,6 +3,7 @@ Given(/^I am on the "([^"]*)" page$/) do |url|
   goto = root_path if url == "index"
   goto = user_session_path if url == "login"
   goto = mailbox_inbox_path if url == "mailbox"
+  goto = new_conversation_path if url == "compose"
   visit goto
 end
 
@@ -19,6 +20,7 @@ Then(/^I should be on the "([^"]*)" page$/) do |url|
   goto = root_path if url == "index"
   goto = user_session_path if url == "login"
   goto = user_registration_path if url == "users"
+  goto = new_conversation_path if url == "compose"
   expect(current_path).to eq goto
 end
 
@@ -33,4 +35,8 @@ end
 
 Then(/^I should see "([^"]*)"$/) do |content|
   expect(page).to have_content content
+end
+
+When(/^I select "([^"]*)" in "([^"]*)"$/) do |option, element|
+  select option, from: element
 end
