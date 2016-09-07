@@ -3,7 +3,7 @@ Feature: As a registered user
   I need to be able to login
 
 Background:
-  Given following users exists
+  Given following users exist
     | name   | email              | password |
     | Jenny  | jenny@random.com   | password |
 

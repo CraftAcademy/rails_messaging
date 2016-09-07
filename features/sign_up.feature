@@ -40,3 +40,21 @@ Scenarios:
   |  Jenny      | jennyemail.com |      password       |             password            | "Email is invalid" |
   |  Jenny      | jenny@email.com |      xTJETHfRTfGkpSxNQsEHZWXcPUYgAagYvPepYjgtooDgICTbUZkvxiamcYUeAacWrINpuTJIJOqX       |             xTJETHfRTfGkpSxNQsEHZWXcPUYgAagYvPepYjgtooDgICTbUZkvxiamcYUeAacWrINpuTJIJOqX            | "Password is too long" |
   |  JennyBoBennyFeeFiMoMenny      | jenny@email.com |      password       |             password            | "Name is too long" |
+
+Scenario Outline: I attempt to sign up with previously-registered information
+  Given I am on the "sign up" page
+  And following users exist
+    | name   | email              | password |
+    | Jenny  | jenny@random.com   | password |
+  When I fill in the form with data :
+  | user_name   | user_email   | user_password   | user_password_confirmation   |
+  | <user_name> | <user_email> | <user_password> | <user_password_confirmation> |
+  When I click the "Create" button
+  Then I should be on the "users" page
+  And I should see the error message: <error>
+
+Scenarios:
+  | user_name   | user_email      | user_password   | user_password_confirmation   | error |
+  | Jenny       | jenny@jenny.com | password        | password                     | "Name has already been taken" |
+  | Beth       | jenny@random.com | password        | password                     | "Email has already been taken" |
+  | Jenny       | jenny@random.com | password        | password                     | "Name has already been taken" |
