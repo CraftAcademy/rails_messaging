@@ -32,3 +32,10 @@ Scenarios:
   |  Jenny      | jenny@email.com |      password       |             password_of_awesome             | "Password confirmation doesn't match" |
   |  Jenny      | jennyemail.com |      password       |             password            | "Email is invalid" |
   |  Jenny      | jenny@email.com |      xTJETHfRTfGkpSxNQsEHZWXcPUYgAagYvPepYjgtooDgICTbUZkvxiamcYUeAacWrINpuTJIJOqX       |             xTJETHfRTfGkpSxNQsEHZWXcPUYgAagYvPepYjgtooDgICTbUZkvxiamcYUeAacWrINpuTJIJOqX            | "Password is too long" |
+  |  JennyBoBennyFeeFiMoMenny      | jenny@email.com |      password       |             password            | "Name is too long" |
+
+
+
+
+
+  # |  Jenny      | jenny@email.com |      pass word       |             pass word            | "Email is invalid" |
