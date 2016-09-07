@@ -31,3 +31,4 @@ Scenarios:
   |        | jenny@email.com |      password       |             password             | "Name can't be blank" |
   |  Jenny      | jenny@email.com |      password       |             password_of_awesome             | "Password confirmation doesn't match" |
   |  Jenny      | jennyemail.com |      password       |             password            | "Email is invalid" |
+  |  Jenny      | jenny@email.com |      xTJETHfRTfGkpSxNQsEHZWXcPUYgAagYvPepYjgtooDgICTbUZkvxiamcYUeAacWrINpuTJIJOqX       |             xTJETHfRTfGkpSxNQsEHZWXcPUYgAagYvPepYjgtooDgICTbUZkvxiamcYUeAacWrINpuTJIJOqX            | "Password is too long" |
