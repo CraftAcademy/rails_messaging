@@ -6,7 +6,7 @@ Background:
   Given following users exist
     | name   | email              | password |
     | Jenny  | jenny@random.com   | password |
-    | Anna   |  anna@random.com   | password |
+    | Anna   | anna@random.com    | password |
 
 Scenario: I delete a message from my inbox
   Given I am logged in as "Jenny"
