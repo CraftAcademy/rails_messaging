@@ -17,11 +17,21 @@ Scenario: Logging in
   And I click the "Log in" button
   Then I should see "Signed in successfully"
 
-#There is a quicker way to do this with scenario tables:
-# http://stackoverflow.com/questions/26920081/best-practice-to-test-if-any-empty-field
 Scenario: Not proper e-mail
   Given I am on the "login" page
   When I fill in "Email" with "jennyrandom.com"
   And I fill in "Password" with "password"
+  And I click the "Log in" button
+  Then I should see "Invalid email or password"
+
+Scenario: Not input email
+  Given I am on the "login" page
+  When I leave the "Email" field empty
+  And I click the "Log in" button
+  Then I should see "Invalid email or password"
+
+Scenario: Not input email
+  Given I am on the "login" page
+  When I leave the "Password" field empty
   And I click the "Log in" button
   Then I should see "Invalid email or password"
