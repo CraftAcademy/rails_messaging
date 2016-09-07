@@ -32,3 +32,23 @@ Scenario: I delete a message from my inbox
   And I click the "Move to trash" link
   And I click the "Trash" link
   Then I should see "Yo Anna!"
+
+Scenario: I untrash a message
+  Given I am logged in as "Jenny"
+  And I send a mail to "Anna" with subject "Hey there Anna!"
+  And I am on the "index" page
+  And I click the "Logout" link
+
+  Given I am logged in as "Anna"
+  And I am on the "mailbox" page
+  And I click the first "View" link
+  And I click the "Move to trash" link
+  Then I should be on the "mailbox" page
+  And I should not see "Hey there Anna!"
+  When I click the "Trash" link
+  Then I should see "Hey there Anna!"
+  When I click the "View" link
+  Then I should see "Untrash"
+  When I click the "Untrash" link
+  Then I should be on the "mailbox" page
+  And I should see "Hey there Anna!"
