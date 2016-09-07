@@ -2,7 +2,7 @@ Given(/^I am on the "([^"]*)" page$/) do |url|
   goto = new_user_registration_path if url == "sign up"
   goto = root_path if (url == "index" || url == "home")
   goto = user_session_path if url == "login"
-  goto = mailbox_inbox_path if url == "mailbox"
+  goto = mailbox_inbox_path if (url == "mailbox" || url == "inbox" )
   goto = new_conversation_path if url == "compose"
   visit goto
   expect(current_path).to eq goto

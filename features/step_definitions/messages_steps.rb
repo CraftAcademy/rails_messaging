@@ -9,6 +9,10 @@ Then(/^I should not see "([^"]*)"$/) do |content|
   expect(page).not_to have_content content
 end
 
+When(/^I fill in the reply box with "([^"]*)"$/) do |text|
+  fill_in "message_body", with: text
+end
+
 # Then(/^"([^"]*)" should be highlighted$/) do |text|
 #    within(:css, 'active') {expect(page).to have_content text}
 # end

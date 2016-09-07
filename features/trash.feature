@@ -58,3 +58,11 @@ Scenario: I reply to a trashed message (that I sent to myself)
   And I send a mail to "Jenny" with subject "Hey there me!"
   And I am on the "mailbox" page
   Then I should see "Hey there me!"
+  When I click the "View" link
+  And I fill in the reply box with "replying to a trashed message"
+  And I click the "Reply" button
+  Then I should see "replying to a trashed message"
+  When I click the "Inbox" link
+  Then I should see "replying to a trashed message"
+  When I click the "Trash" link
+  Then I should not see "replying to a trashed message"
