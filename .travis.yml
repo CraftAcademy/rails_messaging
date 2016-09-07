@@ -2,11 +2,12 @@ language: ruby
 cache: bundler
 rvm:
   - 2.2.1
-script:
+setup:
   - bundle exec rake db:create --all
   - bundle exec rake db:migrate
-  - bundle exec rspec spec
-  - bundle exec cucumber
+script:
+  - bundle exec rake ci:tests
+
 deploy:
   provider: heroku
   api_key:
