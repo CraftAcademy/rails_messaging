@@ -22,3 +22,9 @@ Scenario: I leave email blank and try to reset my password
   Given I am on the "Forgot your password" page
   When I click the "Send me reset password instructions" button
   Then I should see "Email can't be blank"
+
+Scenario: I try to reset a password for someone not registered
+  Given I am on the "Forgot your password" page
+  When I fill in "Email" with "anna@random.com"
+  When I click the "Send me reset password instructions" button
+  Then I should see "Email not found"
