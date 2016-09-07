@@ -23,6 +23,7 @@ end
 
 When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |element, text|
   fill_in element, with: text
+  expect(element).not_to be_empty
 end
 
 When(/^I click the "([^"]*)" button$/) do |button|

@@ -7,7 +7,13 @@ Background:
     | name   | email              | password |
     | Jenny  | jenny@random.com   | password |
 
-Scenario: System greeting logged in user
+Scenario: Log out link showing
   Given I am logged in as "Jenny"
   And I am on the "home" page
   Then I should see "Logout"
+
+Scenario: Log out user when link is clicked
+  Given I am logged in as "Jenny"
+  And I am on the "home" page
+  When I click the "Logout" link
+  Then I should see "Signed out successfully"
