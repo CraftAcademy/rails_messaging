@@ -23,6 +23,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
   gem "codeclimate-test-reporter", require: nil
 end
 

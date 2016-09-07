@@ -5,6 +5,7 @@ Feature: As a registered user
 Background:
   Given following users exist
     | name   | email              | password |
+    | Amber  | amber@random.com   | password |
     | Jenny  | jenny@random.com   | password |
 
 Scenario: Logging in

@@ -1,6 +1,6 @@
 Given(/^following users exist$/) do |table|
   table.hashes.each do |hash|
-      User.create!(hash)
+    FactoryGirl.create(:user, hash)
    end
  end
 
