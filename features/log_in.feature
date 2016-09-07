@@ -17,6 +17,11 @@ Scenario: Logging in
   And I click the "Log in" button
   Then I should see "Signed in successfully"
 
+Scenario: System greeting logged in user
+  Given I am logged in as "Jenny"
+  And I am on the "home" page
+  Then I should see "Hello, Jenny"
+
 Scenario: Not proper e-mail
   Given I am on the "login" page
   When I fill in "Email" with "jennyrandom.com"
@@ -52,5 +57,3 @@ Scenario: Not acessing protected page
   When I try to visit the "inbox" page
   Then I should see "You need to sign in or sign up before continuing."
   And I should be on the "login" page
-
-  #comment

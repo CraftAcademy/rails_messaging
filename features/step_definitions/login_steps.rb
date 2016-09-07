@@ -10,7 +10,12 @@ Given(/^following users exists$/) do |table|
 
 
  When(/^I try to visit the "([^"]*)" page$/) do |url|
-  url = '/mailbox/inbox'
+  url = mailbox_inbox_path
   visit url
   expect(current_path).not_to be url
+ end
+
+ Given(/^I am logged in as "([^"]*)"$/) do |name|
+   user = User.find_by(name: name)
+   login_as(user, scope: :user)
  end
