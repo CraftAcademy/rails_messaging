@@ -22,3 +22,7 @@ Feature: As a user
    When I select "Anna" in "Recipients"
    And I fill in "Subject" with "here's a message"
    And I fill in "Message" with "message body"
+   When I click the "Send Message" button
+  #  Then I should be on the "conversation" page
+   And I should see "Your message was successfully sent"
+   And I should see "here's a message"

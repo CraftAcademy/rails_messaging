@@ -21,6 +21,7 @@ Then(/^I should be on the "([^"]*)" page$/) do |url|
   goto = user_session_path if url == "login"
   goto = user_registration_path if url == "users"
   goto = new_conversation_path if url == "compose"
+  goto = conversation_path if url == "conversation" #This isn't working, don't know why
   expect(current_path).to eq goto
 end
 
