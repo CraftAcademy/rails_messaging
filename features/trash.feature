@@ -52,3 +52,9 @@ Scenario: I untrash a message
   When I click the "Untrash" link
   Then I should be on the "mailbox" page
   And I should see "Hey there Anna!"
+
+Scenario: I reply to a trashed message (that I sent to myself)
+  Given I am logged in as "Jenny"
+  And I send a mail to "Jenny" with subject "Hey there me!"
+  And I am on the "mailbox" page
+  Then I should see "Hey there me!"
