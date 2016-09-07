@@ -18,9 +18,9 @@ Scenario Outline: Signing up happy path
   And I should see "Welcome!"
 
 Scenarios:
-  | user_name   | user_email      | user_password   | user_password_confirmation   |
-  | Amber       | theamb@gmail.com    | password        | password                     |
-  |  Jenny      | jenny@email.com |      pass word       |             pass word            |
+  | user_name  | user_email       | user_password   | user_password_confirmation   |
+  | Amber      | theamb@gmail.com | password        | password                     |
+  | Jenny      | jenny@email.com  | pass word       | pass word                    |
 
 Scenario Outline: User sign up sad path
   Given I am on the "sign up" page
@@ -32,14 +32,15 @@ Scenario Outline: User sign up sad path
   And I should see the error message: <error>
 
 Scenarios:
-  | user_name   | user_email      | user_password   | user_password_confirmation   | error |
-  | Jenny       | jenny@email.com | pass            | pass                         | "Password is too short" |
-  | Jenny       | jenny@email.com |             |                          | "Password can't be blank" |
-  |        | jenny@email.com |      password       |             password             | "Name can't be blank" |
-  |  Jenny      | jenny@email.com |      password       |             password_of_awesome             | "Password confirmation doesn't match" |
-  |  Jenny      | jennyemail.com |      password       |             password            | "Email is invalid" |
-  |  Jenny      | jenny@email.com |      xTJETHfRTfGkpSxNQsEHZWXcPUYgAagYvPepYjgtooDgICTbUZkvxiamcYUeAacWrINpuTJIJOqX       |             xTJETHfRTfGkpSxNQsEHZWXcPUYgAagYvPepYjgtooDgICTbUZkvxiamcYUeAacWrINpuTJIJOqX            | "Password is too long" |
-  |  JennyBoBennyFeeFiMoMenny      | jenny@email.com |      password       |             password            | "Name is too long" |
+  | user_name | user_email      | user_password | user_password_confirmation  | error                                 |
+  | --------- | --------------- | ------------- | --------------------------- | -----------------------------------   | 
+  | Jenny     | jenny@email.com | pass          | pass                        | "Password is too short"               |
+  | Jenny     | jenny@email.com |               |                             | "Password can't be blank"             |
+  |           | jenny@email.com | password      | password                    | "Name can't be blank"                 |
+  | Jenny     | jenny@email.com | password      | password_of_awesome         | "Password confirmation doesn't match" |
+  | Jenny     | jennyemail.com  | password      | password                    | "Email is invalid"                    |
+  | Jenny     | jenny@email.com | xTJETHfRTfGkpSxNQsEHZWXcPUYgAagYvPepYjgtooDgICTbUZkvxiamcYUeAacWrINpuTJIJOqX | xTJETHfRTfGkpSxNQsEHZWXcPUYgAagYvPepYjgtooDgICTbUZkvxiamcYUeAacWrINpuTJIJOqX            | "Password is too long"    |
+  | JennyBoBennyFeeFiMoMenny | jenny@email.com | password | password          | "Name is too long"                    |
 
 Scenario Outline: I attempt to sign up with previously-registered information
   Given I am on the "sign up" page
@@ -54,7 +55,8 @@ Scenario Outline: I attempt to sign up with previously-registered information
   And I should see the error message: <error>
 
 Scenarios:
-  | user_name   | user_email      | user_password   | user_password_confirmation   | error |
-  | Jenny       | jenny@jenny.com | password        | password                     | "Name has already been taken" |
-  | Beth       | jenny@random.com | password        | password                     | "Email has already been taken" |
-  | Jenny       | jenny@random.com | password        | password                     | "Name has already been taken" |
+  | user_name | user_email       | user_password | user_password_confirmation |  error                         |
+  | --------- | ---------------- | ------------- | -------------------------- | ----------------------------   |
+  | Jenny     | jenny@jenny.com  | password      | password                   | "Name has already been taken"  |
+  | Beth      | jenny@random.com | password      | password                   | "Email has already been taken" |
+  | Jenny     | jenny@random.com | password      | password                   | "Name has already been taken"  |
