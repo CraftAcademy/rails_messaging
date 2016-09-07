@@ -16,6 +16,10 @@ When(/^I click the "([^"]*)" link$/) do |link|
   click_link(link)
 end
 
+When(/^I click the first "([^"]*)" link$/) do |link|
+  page.first(:link, "View").click
+end
+
 Then(/^I should be on the "([^"]*)" page$/) do |url|
   goto = new_user_registration_path if url == "sign up"
   goto = root_path if url == "index"
