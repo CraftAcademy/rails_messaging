@@ -1,6 +1,8 @@
-Given(/^I am on the "([^"]*)" page$/) do |page|
-  visit root_path
-  # later on we can make a big switch to direct to the right page
+Given(/^I am on the "([^"]*)" page$/) do |url|
+  goto = new_user_registration_path if url == "sign up"
+  goto = root_path if url == "index"
+  goto = user_session_path if url == "login"
+  visit goto
 end
 
 Then(/^I should see "([^"]*)" link$/) do |link|
@@ -12,8 +14,9 @@ When(/^I click the "([^"]*)" link$/) do |link|
 end
 
 Then(/^I should be on the "([^"]*)" page$/) do |url|
-  goto = "/users/sign_up" if url == "sign up"
-  goto = "/" if url == "index"
+  goto = new_user_registration_path if url == "sign up"
+  goto = root_path if url == "index"
+  goto = user_session_path if url == "login"
   expect(current_path).to eq goto
 end
 
