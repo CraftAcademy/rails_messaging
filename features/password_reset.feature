@@ -17,3 +17,8 @@ Scenario: I forgot my password and need to reset it
   And I click the "Send me reset password instructions" button
   Then I should be on the "login" page
   And I should see "You will receive an email with instructions"
+
+Scenario: I leave email blank and try to reset my password
+  Given I am on the "Forgot your password" page
+  When I click the "Send me reset password instructions" button
+  Then I should see "Email can't be blank"
