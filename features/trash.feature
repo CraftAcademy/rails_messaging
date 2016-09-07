@@ -23,4 +23,5 @@ Scenario: I delete a message from my inbox
   And I should not see "Yo Anna!"
   And I should see "Hey there Anna!"
   When I click the "Trash" link
+  # Then "Trash" should be highlighted
   Then I should see "Yo Anna!"

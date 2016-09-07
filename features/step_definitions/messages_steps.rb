@@ -9,3 +9,7 @@ end
 Then(/^I should not see "([^"]*)"$/) do |content|
   expect(page).not_to have_content content
 end
+
+# Then(/^"([^"]*)" should be highlighted$/) do |text|
+#    within(:css, 'active') {expect(page).to have_content text}
+# end
