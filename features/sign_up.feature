@@ -29,3 +29,4 @@ Scenarios:
   | Jenny       | jenny@email.com | pass            | pass                         | "Password is too short" |
   | Jenny       | jenny@email.com |             |                          | "Password can't be blank" |
   |        | jenny@email.com |      password       |             password             | "Name can't be blank" |
+  |  Jenny      | jenny@email.com |      password       |             password_of_awesome             | "Password confirmation doesn't match" |
