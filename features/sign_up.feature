@@ -15,7 +15,7 @@ Scenario Outline: Signing up happy path
   | <user_name> | <user_email> | <user_password> | <user_password_confirmation> |
   When I click the "Create" button
   Then I should be on the "index" page
-  And I should see "Welcome!"
+  And I should see "Welcome! You have signed up successfully."
 
 Scenarios:
   | user_name  | user_email       | user_password   | user_password_confirmation   |
