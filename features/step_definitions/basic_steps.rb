@@ -21,6 +21,7 @@ Then(/^I should be on the "([^"]*)" page$/) do |url|
   goto = root_path if url == "index"
   goto = user_session_path if url == "login"
   goto = user_registration_path if url == "users"
+  goto = mailbox_inbox_path if url == "mailbox"
   expect(current_path).to eq goto
 end
 
