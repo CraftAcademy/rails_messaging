@@ -28,3 +28,4 @@ Scenarios:
   | user_name   | user_email      | user_password   | user_password_confirmation   | error |
   | Jenny       | jenny@email.com | pass            | pass                         | "Password is too short" |
   | Jenny       | jenny@email.com |             |                          | "Password can't be blank" |
+  |        | jenny@email.com |      password       |             password             | "Name can't be blank" |
