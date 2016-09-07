@@ -52,3 +52,5 @@ Scenario: Not acessing protected page
   When I try to visit the "inbox" page
   Then I should see "You need to sign in or sign up before continuing."
   And I should be on the "login" page
+
+  #comment
