@@ -7,15 +7,22 @@ Scenario: Signing up happy path
   Then I should see "Sign up" link
   When I click the "Sign up" link
   Then I should be on the "sign up" page
-  When I fill in "Name" with "Amber"
-  And I fill in "Email" with "theamb@gmail.com"
-  And I fill in "Password" with "password"
-  And I fill in "Password confirmation" with "password"
+
+Scenario Outline: Signing up happy path
+  Given I am on the "sign up" page
+  When I fill in the form with data :
+  | user_name   | user_email   | user_password   | user_password_confirmation   |
+  | <user_name> | <user_email> | <user_password> | <user_password_confirmation> |
   When I click the "Create" button
   Then I should be on the "index" page
   And I should see "Welcome!"
 
-Scenario Outline: I try to register with a password that is fewer than 8 characters
+Scenarios:
+  | user_name   | user_email      | user_password   | user_password_confirmation   |
+  | Amber       | theamb@gmail.com    | password        | password                     |
+  |  Jenny      | jenny@email.com |      pass word       |             pass word            |
+
+Scenario Outline: User sign up sad path
   Given I am on the "sign up" page
   When I fill in the form with data :
   | user_name   | user_email   | user_password   | user_password_confirmation   |
@@ -33,9 +40,3 @@ Scenarios:
   |  Jenny      | jennyemail.com |      password       |             password            | "Email is invalid" |
   |  Jenny      | jenny@email.com |      xTJETHfRTfGkpSxNQsEHZWXcPUYgAagYvPepYjgtooDgICTbUZkvxiamcYUeAacWrINpuTJIJOqX       |             xTJETHfRTfGkpSxNQsEHZWXcPUYgAagYvPepYjgtooDgICTbUZkvxiamcYUeAacWrINpuTJIJOqX            | "Password is too long" |
   |  JennyBoBennyFeeFiMoMenny      | jenny@email.com |      password       |             password            | "Name is too long" |
-
-
-
-
-
-  # |  Jenny      | jenny@email.com |      pass word       |             pass word            | "Email is invalid" |
