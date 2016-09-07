@@ -42,3 +42,13 @@ Scenario: Not registered user
   And I fill in "Password" with "password"
   And I click the "Log in" button
   Then I should see "Invalid email or password"
+
+Scenario: Not acessing protected page
+  Given I am on the "login" page
+  When I fill in "Email" with "henny@random.com"
+  And I fill in "Password" with "password"
+  And I click the "Log in" button
+  Then I should see "Invalid email or password"
+  When I try to visit the "inbox" page
+  Then I should see "You need to sign in or sign up before continuing."
+  And I should be on the "login" page
