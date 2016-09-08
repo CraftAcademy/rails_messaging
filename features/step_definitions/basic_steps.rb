@@ -39,8 +39,7 @@ When(/^I select "([^"]*)" in "([^"]*)"$/) do |option, element|
 end
 
 Then(/^I should be prompted with "([^"]*)"$/) do |content|
-  text = #stuff
-  expect(text).to eq content
+  expect(content).to eq page.driver.confirm_messages
 end
 
 def translate_url(url)
