@@ -34,3 +34,10 @@ Feature: As a user
    And I am on the "mailbox" page
    When I click the "Sent" link
    Then I should see "Hey there Anna!"
+
+  @javascript
+  Scenario: I send a message to someonw not in list
+   Given I am logged in as "Jenny"
+   And I am on the "compose" page
+   And I select "Nope" in "Recipients"
+   Then I should see "No results matched"
