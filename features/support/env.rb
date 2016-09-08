@@ -5,7 +5,12 @@ require 'cucumber/rails'
 require 'capybara/poltergeist'
 ActionController::Base.allow_rescue = false
 
+Capybara.register_driver :poltergeist do |app|
+    Capybara::Poltergeist::Driver.new(app, js_errors: false, timeout: 30)
+end
+
 Capybara.javascript_driver = :poltergeist
+
 #Capybara.javascript_driver = :poltergeist
 
 begin

@@ -30,18 +30,18 @@ end
 Given(/^I pick "([^"]*)" from dropdown list$/) do |name|
 #click in the recipients box
   # page.execute_script("$('.search-field').click()")
-  expect(page).not_to have_content name
+  #expect(page).not_to have_content name
   # page.execute_script("$('.default').focus().click()")
   # page.execute_script("$('.active-result').mouseenter()")
   # expect(page.evaluate_script("$('.highlighted').text()")).to eq name
   # binding.pry
   # page.execute_script("$('.highlighted').mouseup()")
 
-
-  page.execute_script("$('select').val(2)")
+  @user = User.find_by(name: name)
+  page.execute_script("$('select').val(#{@user.id})")
   page.execute_script("$('select').trigger('chosen:updated')")
   expect(page).to have_content name
-  expect(page).not_to have_content "Marge"
+  #expect(page).not_to have_content "Marge"
 
   # expected_name = page.evaluate_script("$('.result-selected').text()")
   # # binding.pry
