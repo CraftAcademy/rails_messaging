@@ -66,3 +66,13 @@ Scenario: I reply to a trashed message (that I sent to myself)
   Then I should see "replying to a trashed message"
   When I click the "Trash" link
   Then I should not see "replying to a trashed message"
+
+@javascript
+Scenario: Deleting a message gives prompt
+  Given I am logged in as "Jenny"
+  And I send a mail to "Jenny" with subject "Hey there me!"
+  And I am on the "mailbox" page
+  Then I should see "Hey there me!"
+  When I click the "View" link
+  And I click the "Trash" link
+  Then I should be prompted with "are you sure"

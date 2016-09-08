@@ -26,6 +26,8 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'codeclimate-test-reporter', require: nil
   gem 'launchy'
+  gem 'poltergeist'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
 end
 
 group :development do
