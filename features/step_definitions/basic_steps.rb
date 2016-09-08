@@ -1,10 +1,10 @@
 Given(/^I am on the "([^"]*)" page$/) do |url|
   goto = new_user_registration_path if url == "sign up"
-  goto = root_path if url == "index"
+  goto = root_path if (url == "index" || url == "home")
   goto = user_session_path if url == "login"
-  goto = mailbox_inbox_path if url == "mailbox"
-  goto = new_conversation_path if url == "compose"
+
   visit goto
+  expect(current_path).to eq goto
 end
 
 Then(/^I should see "([^"]*)" link$/) do |link|
@@ -15,13 +15,16 @@ When(/^I click the "([^"]*)" link$/) do |link|
   click_link(link)
 end
 
+When(/^I click the first "([^"]*)" link$/) do |link|
+  page.first(:link, "View").click
+end
+
 Then(/^I should be on the "([^"]*)" page$/) do |url|
   goto = new_user_registration_path if url == "sign up"
   goto = root_path if url == "index"
   goto = user_session_path if url == "login"
   goto = user_registration_path if url == "users"
-  goto = new_conversation_path if url == "compose"
-  goto = conversation_path if url == "conversation" #This isn't working, don't know why
+
   expect(current_path).to eq goto
 end
 
