@@ -3,6 +3,7 @@ Given(/^I am on the "([^"]*)" page$/) do |url|
   goto = root_path if (url == "index" || url == "home")
   goto = user_session_path if url == "login"
 
+
   visit goto
   expect(current_path).to eq goto
 end
