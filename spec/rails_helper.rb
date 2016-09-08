@@ -1,6 +1,6 @@
 require 'coveralls'
 Coveralls.wear_merged!("rails")
-# 
+#
 # require "codeclimate-test-reporter"
 # CodeClimate::TestReporter.start
 
@@ -32,5 +32,6 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
 
+  config.include ShowMeTheCookies, :type => :feature
 
 end

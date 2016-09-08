@@ -31,6 +31,10 @@ RSpec.describe User, type: :model do
     expect(subject.mailboxer_email(subject.password)).to eq subject.email
   end
 
+  # it 'should be rememberable' do
+  #   expect(subject.remember_created_at).not_to eq nil
+  # end
+
 
   describe 'Users table' do
     it { is_expected.to have_db_column :id }

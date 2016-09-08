@@ -26,6 +26,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'codeclimate-test-reporter', require: nil
   gem 'launchy'
+  gem 'show_me_the_cookies'
 end
 
 group :development do
