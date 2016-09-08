@@ -67,6 +67,12 @@ RSpec.describe User, type: :model do
         expect(thomas.mailbox.sentbox.count).to eq 1
       end
 
+      it 'adds message to trash' do
+        conversation = subject.mailbox.inbox.first
+        conversation.move_to_trash(subject)
+        expect(subject.mailbox.trash.count).to eq 1
+      end
+
     end
 
   end
