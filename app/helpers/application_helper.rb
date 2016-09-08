@@ -2,9 +2,9 @@ module ApplicationHelper
   def flash_class(level)
     case level.to_sym
       when :notice then 'alert alert-success'
-      when :info then 'alert alert-info'
+      # when :info then 'alert alert-info' #Application doesn't call info or warning anywhere.
       when :alert then 'alert alert-danger'
-      when :warning then 'alert alert-warning'
+      # when :warning then 'alert alert-warning'
     end
   end
   def active_page(active_page)
