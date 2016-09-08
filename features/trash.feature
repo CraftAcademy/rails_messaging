@@ -20,6 +20,8 @@ Scenario: I delete a message from my inbox
   And I am on the "mailbox" page
   And I click the first "View" link
   And I click the "Move to trash" link
+  Then show me the page
+
   Then I should be on the "mailbox" page
   And I should not see "Third Message!"
   And I should see "Hey there Anna!"
