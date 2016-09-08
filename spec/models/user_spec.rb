@@ -18,9 +18,17 @@ RSpec.describe User, type: :model do
     expect(subject.name).to eq 'Amber'
   end
 
+  it 'has the same name as the mailbox name' do
+    expect(subject.mailboxer_name).to eq subject.name
+  end
+
   it 'should have an email' do
     subject.reload
     expect(User.first.email).to eq 'theamb@gmail.com'
+  end
+
+  it 'has the same email as the mailbox email' do
+    expect(subject.mailboxer_email(subject.password)).to eq subject.email
   end
 
 
