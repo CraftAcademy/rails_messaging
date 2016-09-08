@@ -1,9 +1,5 @@
 Given(/^I am on the "([^"]*)" page$/) do |url|
-  goto = new_user_registration_path if url == "sign up"
-  goto = root_path if (url == "index" || url == "home")
-  goto = user_session_path if url == "login"
-
-
+  goto = translate_url(url)
   visit goto
   expect(current_path).to eq goto
 end
@@ -21,11 +17,7 @@ When(/^I click the first "([^"]*)" link$/) do |link|
 end
 
 Then(/^I should be on the "([^"]*)" page$/) do |url|
-  goto = new_user_registration_path if url == "sign up"
-  goto = root_path if url == "index"
-  goto = user_session_path if url == "login"
-  goto = user_registration_path if url == "users"
-
+  goto = translate_url(url)
   expect(current_path).to eq goto
 end
 
@@ -44,4 +36,15 @@ end
 
 When(/^I select "([^"]*)" in "([^"]*)"$/) do |option, element|
   select option, from: element
+end
+
+def translate_url(url)
+  goto = new_user_registration_path if url == "sign up"
+  goto = root_path if (url == "index" || url == "home")
+  goto = user_session_path if url == "login"
+  goto = user_registration_path if url == "users"
+  goto = mailbox_inbox_path if (url == "mailbox" || url == "inbox" )
+  goto = new_conversation_path if url == "compose"
+  goto = new_user_password_path if url == "Forgot your password"
+  goto
 end
