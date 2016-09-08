@@ -1,8 +1,8 @@
 require 'coveralls'
 Coveralls.wear_merged!("rails")
-
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
+# 
+# require "codeclimate-test-reporter"
+# CodeClimate::TestReporter.start
 
 
 
