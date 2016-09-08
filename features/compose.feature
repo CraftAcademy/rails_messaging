@@ -26,3 +26,11 @@ Feature: As a user
   #  Then I should be on the "conversation" page
    And I should see "Your message was successfully sent"
    And I should see "here's a message"
+
+
+ Scenario: I send a message
+   Given I am logged in as "Jenny"
+   And I send a mail to "Anna" with subject "Hey there Anna!"
+   And I am on the "index" page
+   When I click the "Sent" link
+   Then I should see "Hey there Anna!"
