@@ -57,6 +57,7 @@ RSpec.describe User, type: :model do
 
       before do
         thomas.send_message(subject, 'Hello Amber', 'Yo!')
+        @conversation = subject.mailbox.inbox.first
       end
 
       it 'adds message to inbox' do
@@ -68,16 +69,19 @@ RSpec.describe User, type: :model do
       end
 
       it 'adds message to trash' do
-        conversation = subject.mailbox.inbox.first
-        conversation.move_to_trash(subject)
+        @conversation.move_to_trash(subject)
         expect(subject.mailbox.trash.count).to eq 1
       end
 
       it 'untrashes a message' do
-        conversation = subject.mailbox.inbox.first
-        conversation.move_to_trash(subject)
-        conversation.untrash(subject)
+        @conversation.move_to_trash(subject)
+        @conversation.untrash(subject)
         expect(subject.mailbox.inbox.count).to eq 1
+      end
+
+      it 'replies to a message' do
+        subject.reply_to_conversation(@conversation, "here's my reply")
+        expect(thomas.mailbox.inbox.count).to eq 1
       end
 
     end
