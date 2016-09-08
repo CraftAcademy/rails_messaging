@@ -6,6 +6,7 @@ Given(/^I send a mail to "([^"]*)" with subject "([^"]*)"$/) do |person, subject
 end
 
 Then(/^I should not see "([^"]*)"$/) do |content|
+binding.pry
   expect(page).not_to have_content content
 end
 
