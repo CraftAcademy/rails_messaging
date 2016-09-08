@@ -73,6 +73,13 @@ RSpec.describe User, type: :model do
         expect(subject.mailbox.trash.count).to eq 1
       end
 
+      it 'untrashes a message' do
+        conversation = subject.mailbox.inbox.first
+        conversation.move_to_trash(subject)
+        conversation.untrash(subject)
+        expect(subject.mailbox.inbox.count).to eq 1
+      end
+
     end
 
   end
