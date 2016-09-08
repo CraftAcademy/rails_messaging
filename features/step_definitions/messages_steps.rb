@@ -20,8 +20,12 @@ end
 
 Given(/^I pick "([^"]*)" from dropdown list$/) do |name|
 #click in the recipients box
-  page.execute_script("$('.search-field').click()")
+  # page.execute_script("$('.search-field').click()")
   page.execute_script("$('.default').focus().click()")
   page.execute_script("$('.highlighted').mouseup()")
+  expect(page).to have_content name
+  expected_name = page.evaluate_script("$('.result-selected').text()")
+  expect(expected_name).to eq name
+  # expect(page.execute_script("$('.search-choice').val(1)")).to have_content name
   # page.execute_script("$('.chosen-select').val(#{name})")
 end
