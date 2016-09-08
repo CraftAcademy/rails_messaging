@@ -24,7 +24,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-byebug'
-  gem "codeclimate-test-reporter", require: nil
+  gem 'codeclimate-test-reporter', require: nil
+  gem 'launchy'
 end
 
 group :development do

@@ -48,3 +48,8 @@ def translate_url(url)
   goto = new_user_password_path if url == "Forgot your password"
   goto
 end
+
+
+Then(/^show me the page$/) do
+  save_and_open_page
+end

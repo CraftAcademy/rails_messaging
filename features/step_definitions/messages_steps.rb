@@ -14,6 +14,5 @@ When(/^I fill in the reply box with "([^"]*)"$/) do |text|
 end
 
 Then(/^"([^"]*)" should be highlighted$/) do |text|
-  expect(page).to have_selector("li.active", text)
-  #  within(:css, 'active') {expect(page).to have_content text}
+  expect(page).to have_selector('li.active', text: text)
 end
