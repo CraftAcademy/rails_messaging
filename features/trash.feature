@@ -24,7 +24,7 @@ Scenario: I delete a message from my inbox
   And I should not see "Third Message!"
   And I should see "Hey there Anna!"
   When I click the "Trash" link
-  # Then "Trash" should be highlighted
+  Then "Trash" should be highlighted
   Then I should see "Third message!"
 
   When I am on the "mailbox" page
