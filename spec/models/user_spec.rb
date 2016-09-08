@@ -63,6 +63,10 @@ RSpec.describe User, type: :model do
         expect(subject.mailbox.inbox.count).to eq 1
       end
 
+      it 'adds message to sent' do
+        expect(thomas.mailbox.sentbox.count).to eq 1
+      end
+
     end
 
   end
