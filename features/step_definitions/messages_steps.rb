@@ -17,3 +17,11 @@ end
 Then(/^"([^"]*)" should be highlighted$/) do |text|
   expect(page).to have_selector('li.active', text: text)
 end
+
+Given(/^I pick "([^"]*)" from dropdown list$/) do |name|
+#click in the recipients box
+  page.execute_script("$('.search-field').click()")
+  page.execute_script("$('.default').focus().click()")
+  page.execute_script("$('.highlighted').mouseup()")
+  # page.execute_script("$('.chosen-select').val(#{name})")
+end
