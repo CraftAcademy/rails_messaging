@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'mailboxer'
 gem 'coveralls', require: false
+gem 'travis', '~> 1.8.1'
 
 
 group :development, :test do

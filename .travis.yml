@@ -1,19 +1,19 @@
 language: ruby
 cache: bundler
 rvm:
-  - 2.2.1
+- 2.2.1
 before_script:
-  - bundle exec rake db:create --all
-  - bundle exec rake db:migrate
+- bundle exec rake db:create --all
+- bundle exec rake db:migrate
 script:
-  - bundle exec rake ci:tests
-
+- bundle exec rake ci:tests
 deploy:
   provider: heroku
   api_key:
-    secure: rxV7wKzgoBYieMQWQgJWN9YkGK/1dHc5wJSmAgyS/shHj1618TjNgqXX+ibuKybI+BRrW2w+MDFMkzG6jgEld2jk4ca2+NvydhJbBRQLiBMfjKZbnhssnQJqvhFhwmeanTjA4r3DsTU0oPuRyKqQ2w163s/YpAddoiJbg5AGfjyMCnrY5dMwCCBjIyApcysuxtGFjuEGPHUssxc+B7qKcXIygvW8SDDRHfm0lkKUjvRa0U7JgjvNbfrKItUwmkopMi9Dk7tKkiN2prqKefrtoYpT2u6pAmd6n+jVYG7vRWMeWyed9SUmKbniEdOdGKQ1BUgE1sU1Dv4SNVxtaB8ynu8C2cMBHwf3QsSu8rA2lfwQ3AbnsvBJYu10kWhMI4RKed4BKSwOl18goQaX5RMpF12d2VcpioqA7cWWuMjubzT01AZdJ68kFzqY06SySvq6EVgngEBHBeGYnbSeHvqfPUqTjN/uRH+or36swsjRRnpaz/bgC/ENSuhL+Jq2otDFZvxFWnZrqBq10UAzEM9gPeRhUYzOlh6fO68WoHifZ+xe0c9Oog8i4MBti8sa3hY6qD+SS5WJnkH9USSoBfJ+oKpxgyBctjndkA2Rjgt3jSZwvNKR9RpU1UpIS8dalNusI6ySIPFFyNHlRIBo32YgL32SriJdSSpwF6DArZdNcYQ=
+    secure: D6AmwzPuwK5T4SZ3IWO7snszfGo5ixqj/bnQFeV0qtSXYDXEjqzmb0z65865dMTMmKsc53aPaNnGjUrsKmf+c6yvPVYgxEGUJHnuKcB/FGvdd6Ostwm4nSw5zDJ4dyRE6o28UXrS20g6baOAcdI+x6Omre43kiWWZmhkk84Wx48Wsr7f0rveBFspW8IR59Ns5JFmcm63kbm2Msfrr98Jbtrlfec/vNocIOQqT5+k/+lYFu09OkaAMr8BV1XuGK+SrLhVBq0rSQ7hwJiEuXxv8w4yOWGfuJlY7gAe4KHUxdXb7ezOAH2Rfhz3k0518Bq6mq7Xj1GvN+GqXkAz6CWSDzcr/49tU5bfoIA+q4RqwNCYFYB4p8KkwTeTtjnj+8TKd3YXFlUm+pMTOhYEvRdUIjjZAhqHWH19WN8X4QpwbRRqDlWB9Wqx1WhHwmle4C94vl5HNN/umLGzV7GcnVg3MX3ilgzSPvt0G8OB7CIBjd09atnwlnBywA3R4wy6Iegoq3vbELGagYVryGfga5zKKYld9ItYTbvT/qRJJZxpGuq0rsMbFBKjqDweRAUjqrA+jLKriU6Ap7T1+Mhrb2t7plqrKAmmXUy5ChM5BuZappLIwVF8fmg6gyS0ayrnBQR2rO+oiyLL+MX3TilqJ3SGo/f9rBhd9zYrq2TGEF2w5iQ=
+  on: dev
 services:
-  - postgresql
+- postgresql
 addons:
   code_climate:
     repo_token: e3f41d7e28f0381b9565ad73c45c29d21b14d99e58c5a480a57c0126a9881316
