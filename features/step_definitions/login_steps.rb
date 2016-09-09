@@ -4,18 +4,18 @@ Given(/^following users exist$/) do |table|
    end
  end
 
- When(/^I leave the "([^"]*)" field empty$/) do |field|
+When(/^I leave the "([^"]*)" field empty$/) do |field|
   fill_in field, with: nil
- end
+end
 
 
- When(/^I try to visit the "([^"]*)" page$/) do |url|
+When(/^I try to visit the "([^"]*)" page$/) do |url|
   url = mailbox_inbox_path
   visit url
   expect(current_path).not_to be url
- end
+end
 
- Given(/^I am logged in as "([^"]*)"$/) do |name|
-   user = User.find_by(name: name)
-   login_as(user, scope: :user)
- end
+Given(/^I am logged in as "([^"]*)"$/) do |name|
+  user = User.find_by(name: name)
+  login_as(user, scope: :user)
+end

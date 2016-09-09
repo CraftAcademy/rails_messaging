@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'mailboxer'
 gem 'coveralls', require: false
+gem 'travis', '~> 1.8.1'
 
 
 group :development, :test do
@@ -27,6 +28,8 @@ group :development, :test do
   gem 'codeclimate-test-reporter', require: nil
   gem 'launchy'
   gem 'show_me_the_cookies'
+  gem 'poltergeist'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
 end
 
 group :development do

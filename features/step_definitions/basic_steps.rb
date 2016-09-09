@@ -38,6 +38,10 @@ When(/^I select "([^"]*)" in "([^"]*)"$/) do |option, element|
   select option, from: element
 end
 
+Then(/^I should be prompted with "([^"]*)"$/) do |content|
+  expect(content).to eq page.driver.confirm_messages
+end
+
 def translate_url(url)
   goto = new_user_registration_path if url == "sign up"
   goto = root_path if (url == "index" || url == "home")

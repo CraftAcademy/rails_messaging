@@ -7,7 +7,7 @@ Background:
     | name   | email              | password |
     | Jenny  | jenny@random.com   | password |
     | Anna   | anna@random.com    | password |
-
+@javascript
 Scenario: I delete a message from my inbox
   Given I am logged in as "Jenny"
   And I send a mail to "Anna" with subject "Hey there Anna!"
@@ -20,6 +20,7 @@ Scenario: I delete a message from my inbox
   And I am on the "mailbox" page
   And I click the first "View" link
   And I click the "Move to trash" link
+
   Then I should be on the "mailbox" page
   And I should not see "Third Message!"
   And I should see "Hey there Anna!"
@@ -66,3 +67,16 @@ Scenario: I reply to a trashed message (that I sent to myself)
   Then I should see "replying to a trashed message"
   When I click the "Trash" link
   Then I should not see "replying to a trashed message"
+
+@javascript
+Scenario: Deleting a message gives prompt
+  Given I am logged in as "Jenny"
+  And the inbox of "Jenny" should have 0 emails
+  When I send a mail to "Jenny" with subject "Hey there me!"
+  Then the inbox of "Jenny" should have 1 emails
+  And I am on the "mailbox" page
+  Then I should see "Hey there me!"
+  When I click the "View" link
+  And I click the "Move to trash" link
+  And I see "Are you sure?" on the prompt
+  # To Thomas and Raoul: we found evidence that this is impossible to do in Poltergeist. Please see link at: http://kinopyo.com/en/blog/check-alert-message-with-poltergeist-or-capybara-webkit
