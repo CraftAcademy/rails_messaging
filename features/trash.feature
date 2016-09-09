@@ -10,9 +10,9 @@ Background:
 @javascript
 Scenario: I delete a message from my inbox
   Given I am logged in as "Jenny"
-  And I send a mail to "Anna" with subject "Hey there Anna!"
-  And I send a mail to "Anna" with subject "Yo Anna!"
-  And I send a mail to "Anna" with subject "Third message!"
+  And I send a mail from "Jenny" to "Anna" with subject "Hey there Anna!"
+  And I send a mail from "Jenny" to "Anna" with subject "Yo Anna!"
+  And I send a mail from "Jenny" to "Anna" with subject "Third message!"
   And I am on the "index" page
   And I click the "Logout" link
 
@@ -36,7 +36,7 @@ Scenario: I delete a message from my inbox
 
 Scenario: I untrash a message
   Given I am logged in as "Jenny"
-  And I send a mail to "Anna" with subject "Hey there Anna!"
+  And I send a mail from "Jenny" to "Anna" with subject "Hey there Anna!"
   And I am on the "index" page
   And I click the "Logout" link
 
@@ -56,7 +56,7 @@ Scenario: I untrash a message
 
 Scenario: I reply to a trashed message (that I sent to myself)
   Given I am logged in as "Jenny"
-  And I send a mail to "Jenny" with subject "Hey there me!"
+  And I send a mail from "Jenny" to "Jenny" with subject "Hey there me!"
   And I am on the "mailbox" page
   Then I should see "Hey there me!"
   When I click the "View" link
@@ -72,7 +72,7 @@ Scenario: I reply to a trashed message (that I sent to myself)
 Scenario: Deleting a message gives prompt
   Given I am logged in as "Jenny"
   And the inbox of "Jenny" should have 0 emails
-  When I send a mail to "Jenny" with subject "Hey there me!"
+  When I send a mail from "Jenny" to "Jenny" with subject "Hey there me!"
   Then the inbox of "Jenny" should have 1 emails
   And I am on the "mailbox" page
   Then I should see "Hey there me!"

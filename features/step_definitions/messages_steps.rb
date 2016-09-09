@@ -1,7 +1,7 @@
-Given(/^I send a mail to "([^"]*)" with subject "([^"]*)"$/) do |person, subject|
-  @receiver = User.find_by(name: person)
+Given(/^I send a mail from "([^"]*)" to "([^"]*)" with subject "([^"]*)"$/) do |sender, recipient, subject|
+  @receiver = User.find_by(name: recipient)
   # @user = current_user
-  @user = User.find_by(name: 'Jenny') #want to use current_user here - how?
+  @user = User.find_by(name: sender) #want to use current_user here - how?
   @user.send_message(@receiver, 'Lorem ipsum...', subject)
 end
 

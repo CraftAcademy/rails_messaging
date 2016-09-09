@@ -30,7 +30,7 @@ Feature: As a user
 
  Scenario: I send a message
    Given I am logged in as "Jenny"
-   And I send a mail to "Anna" with subject "Hey there Anna!"
+   And I send a mail from "Jenny" to "Anna" with subject "Hey there Anna!"
    And I am on the "mailbox" page
    When I click the "Sent" link
    Then I should see "Hey there Anna!"

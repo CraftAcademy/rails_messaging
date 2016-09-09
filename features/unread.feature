@@ -12,9 +12,9 @@ Background:
 Scenario: Viewing and updating unread message count
   Given I am logged in as "Jenny"
   And I am on the "mailbox" page
-  And I send a mail to "Nemo" with subject "Hey there Woof!"
-  And I send a mail to "Nemo" with subject "Yo Nemo!"
-  And I send a mail to "Nemo" with subject "Third message!"
+  And I send a mail from "Jenny" to "Nemo" with subject "Hey there Woof!"
+  And I send a mail from "Jenny" to "Nemo" with subject "Yo Nemo!"
+  And I send a mail from "Jenny" to "Nemo" with subject "Third message!"
   And I click the "Logout" link
 
   Given I am logged in as "Nemo"
