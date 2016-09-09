@@ -45,3 +45,9 @@ Then(/^the trashbox of "([^"]*)" should have (\d+) emails$/) do |name, num|
   count = User.find_by(name: name).mailbox.trash.count
   expect(count).to eq num.to_i
 end
+
+Then(/^"([^"]*)" should see an unread message count of (\d+)$/) do |name, number|
+  count = User.find_by(name: name).mailbox.inbox(unread: true).count
+  expect(count).to eq number.to_i
+  expect(page).to have_css('.label', text: number)
+end
