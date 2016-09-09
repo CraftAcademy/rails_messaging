@@ -12,16 +12,30 @@ gem 'chosen-rails'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'mailboxer'
+gem 'coveralls', require: false
+gem 'travis', '~> 1.8.1'
 
+
+group :development, :test do
+  gem 'spring'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'codeclimate-test-reporter', require: nil
+  gem 'launchy'
+  gem 'show_me_the_cookies'
+  gem 'poltergeist'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
+end
 
 group :development do
   gem 'web-console', '~> 2.0'
-  gem 'spring'
 end
 
 group :production do
   gem 'rails_12factor'
 end
-
-
-
