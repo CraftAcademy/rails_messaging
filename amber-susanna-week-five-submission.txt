@@ -1,0 +1,7 @@
+Github Amber: https://github.com/AmberWilkie/rails_messaging/tree/dev
+Github Susanna: https://github.com/thesuss/rails_messaging/tree/dev
+(they have the same dev)
+
+Heroku deploy: http://ca-rails-messaging-tests.herokuapp.com/
+
+Link to evidence that Poltergeist will automatically accept confirmation dialogs: http://kinopyo.com/en/blog/check-alert-message-with-poltergeist-or-capybara-webkit

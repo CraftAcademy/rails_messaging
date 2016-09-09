@@ -71,9 +71,12 @@ Scenario: I reply to a trashed message (that I sent to myself)
 @javascript
 Scenario: Deleting a message gives prompt
   Given I am logged in as "Jenny"
-  And I send a mail to "Jenny" with subject "Hey there me!"
+  And the inbox of "Jenny" should have 0 emails
+  When I send a mail to "Jenny" with subject "Hey there me!"
+  Then the inbox of "Jenny" should have 1 emails
   And I am on the "mailbox" page
   Then I should see "Hey there me!"
   When I click the "View" link
-  And I click the "Trash" link
-  #Then I should be prompted with "are you sure"
+  And I click the "Move to trash" link
+  And I see "Are you sure?" on the prompt
+  # To Thomas and Raoul: we found evidence that this is impossible to do in Poltergeist. Please see link at: http://kinopyo.com/en/blog/check-alert-message-with-poltergeist-or-capybara-webkit

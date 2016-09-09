@@ -27,26 +27,21 @@ Then(/^the inbox of "([^"]*)" should have (\d+) emails$/) do |name, num|
   expect(count).to eq num.to_i
 end
 
-Given(/^I pick "([^"]*)" from dropdown list$/) do |name|
-#click in the recipients box
-  # page.execute_script("$('.search-field').click()")
-  #expect(page).not_to have_content name
-  # page.execute_script("$('.default').focus().click()")
-  # page.execute_script("$('.active-result').mouseenter()")
-  # expect(page.evaluate_script("$('.highlighted').text()")).to eq name
-  # binding.pry
-  # page.execute_script("$('.highlighted').mouseup()")
+When(/^I see "([^"]*)" on the prompt$/) do |text|
+  expect(accept_alert).to eq text
+  # page.evaluate_script('data-confirm = function() { return false; }')
+  # page.accept_confirm {click_link confirm}
+  # page.driver.browser.reject_js_confirms
+end
 
+Given(/^I pick "([^"]*)" from dropdown list$/) do |name|
   @user = User.find_by(name: name)
   page.execute_script("$('select').val(#{@user.id})")
   page.execute_script("$('select').trigger('chosen:updated')")
   expect(page).to have_content name
-  #expect(page).not_to have_content "Marge"
+end
 
-  # expected_name = page.evaluate_script("$('.result-selected').text()")
-  # # binding.pry
-  # expect(expected_name).to eq name
-
-  # expect(page.execute_script("$('.search-choice').val(1)")).to have_content name
-  # page.execute_script("$('.chosen-select').val(#{name})")
+Then(/^the trashbox of "([^"]*)" should have (\d+) emails$/) do |name, num|
+  count = User.find_by(name: name).mailbox.trash.count
+  expect(count).to eq num.to_i
 end
