@@ -43,13 +43,24 @@ Then(/^I should be prompted with "([^"]*)"$/) do |content|
 end
 
 def translate_url(url)
-  goto = new_user_registration_path if url == "sign up"
-  goto = root_path if (url == "index" || url == "home")
-  goto = user_session_path if url == "login"
-  goto = user_registration_path if url == "users"
-  goto = mailbox_inbox_path if (url == "mailbox" || url == "inbox" )
-  goto = new_conversation_path if url == "compose"
-  goto = new_user_password_path if url == "Forgot your password"
+  case url
+  when "sign up"
+    goto = new_user_registration_path
+  when "index", "home"
+    goto = root_path
+  when "login"
+    goto = user_session_path
+  when "users"
+    goto = user_registration_path
+  when "mailbox", "inbox"
+    goto = mailbox_inbox_path
+  when "compose"
+    goto = new_conversation_path
+  when "Forgot your password"
+    goto = new_user_password_path
+  else
+    goto = "not a valid path"
+  end
   goto
 end
 
