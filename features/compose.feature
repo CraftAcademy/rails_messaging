@@ -47,10 +47,9 @@ Feature: As a user
    Then I should see "Your message was successfully sent"
    And the inbox of "Anna" should have 1 emails
 
-  # Susanna will maybe tackle this one tonight, if not tomorrow morning.
-  # @javascript
-  # Scenario: I send a message to someonw not in list
-  #  Given I am logged in as "Jenny"
-  #  And I am on the "compose" page
-  #  And I select "Nope" in "Recipients"
-  #  Then I should see "No results matched"
+  @javascript
+  Scenario: I send a message to someonw not in list
+   Given I am logged in as "Jenny"
+   And I am on the "compose" page
+   And I click in the dropdown
+   Then I should see "No results matched"

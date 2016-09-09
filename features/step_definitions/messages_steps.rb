@@ -51,3 +51,9 @@ Then(/^"([^"]*)" should see an unread message count of (\d+)$/) do |name, number
   expect(count).to eq number.to_i
   expect(page).to have_css('.label', text: number)
 end
+
+And(/^I click in the dropdown/) do
+  page.execute_script("$('.default').click()")
+  # page.execute_script("$('.default').val(#{text})")
+  # save_screenshot('/dropdown.png')
+end
