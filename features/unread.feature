@@ -9,7 +9,7 @@ Background:
     | Jenny  | jenny@random.com   | password |
     | Nemo   | nemo@dogmail.com   | password |
 
-Scenario: Updating unread message count
+Scenario: Viewing and updating unread message count
   Given I am logged in as "Jenny"
   And I am on the "mailbox" page
   And I send a mail to "Nemo" with subject "Hey there Woof!"
@@ -20,3 +20,5 @@ Scenario: Updating unread message count
   Given I am logged in as "Nemo"
   And I am on the "mailbox" page
   Then "Nemo" should see an unread message count of 3
+  And I click the first "View" link
+  Then "Nemo" should see an unread message count of 2
