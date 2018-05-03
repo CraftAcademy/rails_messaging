@@ -1,3 +1,5 @@
+include Warden::Test::Helpers
+
 Given("I visit the site") do
   visit root_path
 end
@@ -30,4 +32,9 @@ end
 
 Then("I should be redirected to the Welcome page") do
   visit welcome_index_path
+end
+
+Given("I am logged in as {string}") do |name|
+  user = User.find_by(name: name)
+  login_as(user, :scope => :user)
 end
