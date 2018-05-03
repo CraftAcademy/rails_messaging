@@ -28,6 +28,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'launchy'
   gem 'factory_bot_rails'
+  gem "show_me_the_cookies"
 end
 
 group :development do

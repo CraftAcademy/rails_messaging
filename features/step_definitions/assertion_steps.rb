@@ -1,3 +1,5 @@
+World(ShowMeTheCookies)
+
 Then("I should be redirected to the {string} page") do |new_user_registration|
   visit new_user_registration
 end
@@ -24,4 +26,16 @@ end
 
 And("I should see message {string}") do |string|
   expect(page).to have_content string
+end
+
+And("I click the {string} checkbox") do |checkbox|
+  check checkbox
+end
+
+Then("I should be on the {string} page") do |sign_in|
+  visit user_session_path
+end
+
+Then("I leave the site") do
+  expire_cookies
 end
