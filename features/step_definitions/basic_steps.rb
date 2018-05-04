@@ -28,6 +28,6 @@ Given("the user {string} exists") do |string|
   FactoryBot.create(:user, name: string)
 end
 
-Then("I should be redirected to the Welcome page") do
-  visit welcome_index_path
-end
+# Then("I should be redirected to the Welcome page") do
+#   visit welcome_index_path
+# end

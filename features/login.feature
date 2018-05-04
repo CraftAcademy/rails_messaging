@@ -18,6 +18,4 @@ Scenario: User should be able to login successfully
   And I fill in field "Email" with "bob@bobisanasshole.com"
   And I fill in field "Password" with "12345678"
   When I click on "Log in" button
-  Then I should be redirected to the Welcome page
-  And show me the page
-  And I should see message "Signed in successfully."
+  Then I should see message "Signed in successfully"
