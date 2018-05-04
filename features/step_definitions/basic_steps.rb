@@ -20,14 +20,14 @@ Given("there is a user") do |table|
    end
 end
 
-Then("show me the page") do
-  save_and_open_page
-end
-
 Given("the user {string} exists") do |string|
   FactoryBot.create(:user, name: string)
 end
 
-# Then("I should be redirected to the Welcome page") do
-#   visit welcome_index_path
-# end
+Given("I am on the Log in page") do
+  visit user_session_path
+end
+
+Then("show me the page") do
+  save_and_open_page
+end

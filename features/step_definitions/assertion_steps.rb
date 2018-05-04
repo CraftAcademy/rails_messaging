@@ -25,3 +25,7 @@ end
 And("I should see message {string}") do |string|
   expect(page).to have_content string
 end
+
+When("I click on {string}") do |string|
+  visit new_user_password_path
+end
