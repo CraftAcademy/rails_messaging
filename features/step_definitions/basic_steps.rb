@@ -31,3 +31,7 @@ end
 Then("show me the page") do
   save_and_open_page
 end
+
+Given("I am on {string} page") do |string|
+  visit new_user_password_path
+end
