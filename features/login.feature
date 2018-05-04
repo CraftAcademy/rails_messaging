@@ -19,3 +19,10 @@ Scenario: User should be able to login successfully
   And I fill in field "Password" with "12345678"
   When I click on "Log in" button
   Then I should see message "Signed in successfully"
+
+Scenario: User gets error if entering incorrect credentials
+  Given I am on the "Login" page
+  And I fill in field "Email" with "bob@bobisanasshole.com"
+  And I fill in field "Password" with "1234567"
+  When I click on "Log in" button
+  Then I should see message "Invalid Email or password."
